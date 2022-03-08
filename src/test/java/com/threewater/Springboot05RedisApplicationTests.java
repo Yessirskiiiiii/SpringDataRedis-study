@@ -9,12 +9,12 @@ import org.springframework.data.redis.core.RedisTemplate;
 class Springboot05RedisApplicationTests {
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     void contextLoads() {
         // 写入一条String数据
-        redisTemplate.opsForValue().set("name", "zjl");
+        redisTemplate.opsForValue().set("name", "呵呵");
         // 获取String数据
         Object name = redisTemplate.opsForValue().get("name");
         System.out.println(name);
