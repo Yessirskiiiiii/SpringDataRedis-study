@@ -1,5 +1,6 @@
 package com.threewater;
 
+import com.threewater.redis.pojo.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,15 @@ class Springboot05RedisApplicationTests {
         // 获取String数据
         Object name = redisTemplate.opsForValue().get("name");
         System.out.println(name);
+    }
+
+    @Test
+    void testSaveUser() {
+        // 写入数据
+        redisTemplate.opsForValue().set("user:2", new User("吴濛笛", 18));
+        // 获取数据
+        User user = (User) redisTemplate.opsForValue().get("user:2");
+        System.out.println(user);
     }
 
 }
