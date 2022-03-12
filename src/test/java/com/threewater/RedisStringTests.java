@@ -44,10 +44,10 @@ public class RedisStringTests {
         // 手动序列化
         String json = mapper.writeValueAsString(user);
         // 写入数据
-        stringRedisTemplate.opsForValue().set("user:3", json);
+        stringRedisTemplate.opsForValue().set("user:1", json);
 
         // 获取数据
-        String jsonUser = stringRedisTemplate.opsForValue().get("user:3");
+        String jsonUser = stringRedisTemplate.opsForValue().get("user:1");
         // 手动反序列化
         User user1 = mapper.readValue(jsonUser, User.class);
         System.out.println(user1);
@@ -55,8 +55,8 @@ public class RedisStringTests {
 
     @Test
     void testHash() {
-        stringRedisTemplate.opsForHash().put("user:4", "name", "周杰伦");
-        stringRedisTemplate.opsForHash().put("user:4", "age", "18");
+        stringRedisTemplate.opsForHash().put("user:1", "name", "周杰伦");
+        stringRedisTemplate.opsForHash().put("user:1", "age", "18");
 
         Map<Object, Object> entries = stringRedisTemplate.opsForHash().entries("user:4");
         System.out.println(entries);

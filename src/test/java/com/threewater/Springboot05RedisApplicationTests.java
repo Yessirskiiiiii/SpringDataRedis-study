@@ -24,7 +24,7 @@ class Springboot05RedisApplicationTests {
     @Test
     void testSaveUser() {
         // 写入数据
-        redisTemplate.opsForValue().set("user:2", new User("吴濛笛", 18));
+        redisTemplate.opsForValue().set("user:2", new User("周杰伦", 18));
         // 获取数据
         User user = (User) redisTemplate.opsForValue().get("user:2");
         System.out.println(user);

@@ -1,6 +1,6 @@
 spring:
   redis:
-    host: 127.0.0.1
+    host: 192.168.253.101
     port: 6379
     password: abc036912
     jedis:
@@ -9,3 +9,4 @@ spring:
         max-idle: 8
         min-idle: 0
         max-wait: 100ms
+    database: 0
